@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Teachers } from "next/font/google";
 import "./globals.css";
 
 import { ThemeModeScript } from "flowbite-react";
 
 
-const roboto = Roboto({
-  weight: ['100', '200', '300', '400', '500', '600', '700'],
+const teachers = Teachers({
+  weight: ['400', '500', '600', '700'],
   style: ['normal', 'italic',],
   subsets: ['latin'],
   display: 'swap', 
@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning lang="en" className={roboto.className}>
+    <html suppressHydrationWarning lang="en" className={teachers.className}>
       <head>
         <ThemeModeScript />
       </head>

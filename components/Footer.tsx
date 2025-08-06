@@ -12,9 +12,11 @@ const Footer = () => {
             <div className="flex">
                 <div className="flex flex-col justify-between gap-4">
                     <div className="">
-                        <Link href='#'><img src="/shs.svg" className="mr-3 h-6 sm:h-9" alt="Smart Hub Service" /></Link>
+                        <Link href="/">
+                            <img src="/shs.svg" className="self-center scale-x-100" alt="Smart Hub Service" />
+                        </Link>
                     </div>
-                    <ul className='flex justify-between gap-3'>
+                    <ul className='flex justify-center gap-2'>
                         <li>
                             <Link href='https://x.com/@username'>
                                 <FaFacebook size={20} className='text-white'/>

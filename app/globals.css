@@ -25,6 +25,6 @@
 body {
   background: var(--custom-bg);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'teachers', Arial, Helvetica, sans-serif;
 }
 
