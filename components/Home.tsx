@@ -271,9 +271,9 @@ const HeroAboutSection = () => {
             {/* Statistics */}
             <div className="grid grid-cols-3 gap-4 mt-8" data-aos="fade-up" data-aos-delay="500">
               {[
-                { number: "500+", label: "Happy Clients" },
-                { number: "50+", label: "Projects Done" },
-                { number: "5+", label: "Years Experience" }
+                { number: "5+", label: "Happy Clients" },
+                { number: "2+", label: "Projects Done" },
+                { number: "3+", label: "Years Experience" }
               ].map((stat, index) => (
                 <div 
                   key={index}
