@@ -25,13 +25,12 @@ const Header = () => {
           />
         </Link>
         
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-5">
           {navItems.map((link, index) => (
             <Link 
               href={link.path} 
               key={index} 
-              className='text-lg uppercase hover:text-blue-500 transition-colors'
+              className='text-md font-medium text-[#565d62] uppercase hover:text-black transition-colors'
             >
               {link.title}
             </Link>
@@ -39,7 +38,6 @@ const Header = () => {
         </nav>
       </div>
 
-      {/* Desktop Contact */}
       <div className="hidden md:flex items-center gap-3">
         <p>Let's talk : </p>
         <Link 
@@ -50,7 +48,6 @@ const Header = () => {
         </Link>
       </div>
 
-      {/* Mobile Menu Button */}
       <button 
         className="md:hidden p-2 rounded-md focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
@@ -58,7 +55,6 @@ const Header = () => {
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden absolute top-24 left-0 right-0 bg-white shadow-lg z-50">
           <nav className="flex flex-col p-4 space-y-4">
@@ -66,7 +62,7 @@ const Header = () => {
               <Link 
                 href={link.path} 
                 key={index} 
-                className='text-lg uppercase py-2 px-4 hover:bg-gray-100 rounded-md'
+                className='text-md uppercase py-2 px-4 hover:bg-gray-100 rounded-md'
                 onClick={() => setIsOpen(false)}
               >
                 {link.title}

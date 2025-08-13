@@ -5,7 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --custom-bg: #eeeeeeff;
+  --custom-bg: #ffffff;;
 }
 
 @theme inline {
@@ -23,8 +23,6 @@
 } */
 
 body {
-  background: var(--custom-bg);
-  color: var(--foreground);
-  font-family: 'teachers', Arial, Helvetica, sans-serif;
+  font-family: Teachers;
 }
 

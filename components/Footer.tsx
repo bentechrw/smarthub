@@ -59,7 +59,6 @@ const Footer = () => {
                     <li className='text-white text-sm'><Link href='#'>Our team</Link></li>
                     <li className='text-white text-sm'><Link href='#'>Contact us</Link></li>
                     <li className='text-white text-sm'><Link href='#'>News & blog</Link></li>
-                    <li className='text-white text-sm'><Link href='#'>Custom</Link></li>
                 </ul>
             </div>
 

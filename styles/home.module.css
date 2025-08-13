@@ -1,0 +1,20 @@
+.homeFlex{
+    background-image: url('/scattered-forcefields.svg');
+}
+
+.what_we_do{
+    background-color: #26262c;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: 20vw auto;
+    div{
+        div{
+            h5{
+                font-family: 'Teacher';
+                line-height: 1.2rem;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+        }
+    }
+}
