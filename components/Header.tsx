@@ -15,22 +15,27 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeItem, setActiveItem] = useState('Home');
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    // Initialize AOS
-    if (typeof window !== 'undefined') {
-      const AOS = require('aos');
-      AOS.init({
-        duration: 800,
-        once: true,
-        offset: 50,
-        easing: 'ease-in-out-cubic',
-      });
-    }
+    // Initialize AOS only on client
+    const AOS = require('aos');
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 50,
+      easing: 'ease-in-out-cubic',
+    });
 
     // Handle scroll effects
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Calculate scroll progress
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = window.scrollY;
+      const progress = scrollHeight > 0 ? (scrolled / scrollHeight) * 100 : 0;
+      setScrollProgress(Math.min(100, progress));
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -227,9 +232,7 @@ const Header = () => {
       <div className="fixed top-0 left-0 w-full h-1 bg-gray-200/50 z-50">
         <div 
           className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 transition-all duration-300"
-          style={{ 
-            width: `${Math.min(100, (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100)}%` 
-          }}
+          style={{ width: `${scrollProgress}%` }}
         ></div>
       </div>
 

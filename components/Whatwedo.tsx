@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useEffect } from 'react';
 import { 
   Wind, 
@@ -15,15 +14,14 @@ import {
 
 const Whatwedo = () => {
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const AOS = require('aos');
-      AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100,
-        easing: 'ease-in-out-cubic',
-      });
-    }
+    // Initialize AOS with enhanced settings
+    const AOS = require('aos');
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+      easing: 'ease-in-out-cubic',
+    });
   }, []);
 
   const services = [
@@ -79,7 +77,7 @@ const Whatwedo = () => {
 
   return (
     <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
-   
+      {/* Animated background elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-72 h-72 bg-teal-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
         <div className="absolute top-60 right-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
@@ -88,7 +86,7 @@ const Whatwedo = () => {
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-12 lg:py-24">
         <div className="flex flex-col lg:flex-row lg:items-start gap-8 lg:gap-12">
-  
+          {/* Section Title */}
           <div className="lg:w-1/4 flex-shrink-0" data-aos="fade-right" data-aos-duration="800">
             <div className="sticky top-24">
               <h5 className="text-teal-400 text-sm font-semibold tracking-wider uppercase mb-2 opacity-80">
@@ -98,8 +96,9 @@ const Whatwedo = () => {
             </div>
           </div>
 
+          {/* Main Content */}
           <div className="lg:w-3/4 flex-grow">
-  
+            {/* Header Section */}
             <div className="mb-12 lg:mb-16" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
               <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-6 leading-tight">
                 Online service{' '}
@@ -157,6 +156,8 @@ const Whatwedo = () => {
                 );
               })}
             </div>
+
+            {/* Call to Action */}
             <div 
               className="mt-16 lg:mt-20 text-center"
               data-aos="fade-up"
@@ -172,6 +173,92 @@ const Whatwedo = () => {
         </div>
       </div>
 
+      {/* Diagonal Slide Effect at Bottom */}
+      <div className="relative h-32 lg:h-48 overflow-hidden">
+        {/* Background layers for depth */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800"></div>
+        
+        {/* Animated diagonal slides */}
+        <div className="absolute inset-0">
+          {/* Main diagonal slide */}
+          <div 
+            className="absolute inset-0 bg-gradient-to-r from-gray-100 via-white to-gray-50 transform -skew-y-3 origin-top-left translate-y-8"
+            data-aos="slide-left"
+            data-aos-duration="1500"
+            data-aos-delay="1000"
+            style={{
+              animation: 'slideLeft 1.5s ease-out 1s forwards',
+              transform: 'translateX(-100%) skewY(-3deg)'
+            }}
+          ></div>
+          
+          {/* Secondary diagonal slide for depth */}
+          <div 
+            className="absolute inset-0 bg-gradient-to-r from-gray-200 to-gray-100 transform -skew-y-2 origin-top-left translate-y-12 opacity-50"
+            data-aos="slide-left"
+            data-aos-duration="1500"
+            data-aos-delay="1200"
+            style={{
+              animation: 'slideLeft 1.5s ease-out 1.2s forwards',
+              transform: 'translateX(-100%) skewY(-2deg)'
+            }}
+          ></div>
+          
+          {/* Accent diagonal slide */}
+          <div 
+            className="absolute inset-0 bg-gradient-to-r from-teal-50 to-blue-50 transform -skew-y-1 origin-top-left translate-y-16 opacity-30"
+            data-aos="slide-left"
+            data-aos-duration="1500"
+            data-aos-delay="1400"
+            style={{
+              animation: 'slideLeft 1.5s ease-out 1.4s forwards',
+              transform: 'translateX(-100%) skewY(-1deg)'
+            }}
+          ></div>
+        </div>
+
+        {/* Decorative elements on the slide */}
+        <div className="absolute bottom-4 left-8 z-20" data-aos="fade-up" data-aos-delay="1600">
+          <div className="flex items-center space-x-2">
+            <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse"></div>
+            <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{animationDelay: '150ms'}}></div>
+            <div className="w-4 h-4 bg-purple-400 rounded-full animate-pulse" style={{animationDelay: '300ms'}}></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Additional CSS for custom animations */}
+      <style jsx>{`
+        @keyframes slideLeft {
+          from {
+            transform: translateX(-100%) skewY(var(--skew-angle, -3deg));
+          }
+          to {
+            transform: translateX(0) skewY(var(--skew-angle, -3deg));
+          }
+        }
+        
+        .animate-pulse {
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: .5;
+          }
+        }
+
+        .delay-1000 {
+          animation-delay: 1s;
+        }
+
+        .delay-2000 {
+          animation-delay: 2s;
+        }
+      `}</style>
     </div>
   );
 };

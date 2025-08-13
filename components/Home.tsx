@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useEffect, useState } from 'react';
 import { 
   ArrowRight, 
@@ -18,17 +17,16 @@ const HeroAboutSection = () => {
 
   useEffect(() => {
     // Initialize AOS
-    if (typeof window !== 'undefined') {
-      const AOS = require('aos');
-      AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100,
-        easing: 'ease-in-out-cubic',
-      });
-    }
+    const AOS = require('aos');
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+      easing: 'ease-in-out-cubic',
+    });
 
-    const handleMouseMove = (e: { clientX: any; clientY: any; }) => {
+    // Mouse tracking for interactive effects
+    const handleMouseMove = (e: { clientX: number; clientY: number; }) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
@@ -53,18 +51,18 @@ const HeroAboutSection = () => {
         <div className="absolute bottom-40 left-1/4 w-40 h-40 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full animate-pulse delay-2000"></div>
         
         {/* Floating particles */}
-        {[...Array(15)].map((_, i) => (
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((i) => (
           <div
             key={i}
             className="absolute animate-float opacity-30"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${4 + Math.random() * 3}s`
+              left: `${(i * 19) % 100}%`,
+              top: `${(i * 27) % 100}%`,
+              animationDelay: `${(i * 0.4) % 5}s`,
+              animationDuration: `${4 + (i % 3)}s`
             }}
           >
-            <Star size={Math.random() * 8 + 4} className="text-blue-500" />
+            <Star size={(i % 2) * 4 + 4} className="text-blue-500" />
           </div>
         ))}
       </div>
@@ -271,9 +269,9 @@ const HeroAboutSection = () => {
             {/* Statistics */}
             <div className="grid grid-cols-3 gap-4 mt-8" data-aos="fade-up" data-aos-delay="500">
               {[
-                { number: "5+", label: "Happy Clients" },
-                { number: "2+", label: "Projects Done" },
-                { number: "3+", label: "Years Experience" }
+                { number: "500+", label: "Happy Clients" },
+                { number: "50+", label: "Projects Done" },
+                { number: "5+", label: "Years Experience" }
               ].map((stat, index) => (
                 <div 
                   key={index}

@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import AOS from 'aos';
 import { 
   Facebook, 
   Instagram, 
@@ -12,21 +11,24 @@ import {
   ExternalLink,
   Heart,
   Sparkles,
-  ArrowUp,
+  ArrowUp
 } from 'lucide-react';
-import Link from 'next/link';
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
+    // Initialize AOS for animations
+    const AOS = require('aos');
     AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 50,
-        easing: 'ease-in-out-cubic',
-      })
+      duration: 1000,
+      once: true,
+      offset: 50,
+      easing: 'ease-in-out-cubic',
+    });
+
+    // Show scroll to top button
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 300);
     };
@@ -93,19 +95,19 @@ const Footer = () => {
 
       {/* Floating Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19].map((i) => (
           <div
             key={i}
             className="absolute animate-float opacity-20"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
+              left: `${(i * 17) % 100}%`,
+              top: `${(i * 23) % 100}%`,
+              animationDelay: `${(i * 0.3) % 5}s`,
+              animationDuration: `${3 + (i % 4)}s`
             }}
           >
             <Sparkles 
-              size={Math.random() * 10 + 5} 
+              size={(i % 3) * 3 + 5} 
               className="text-teal-400"
             />
           </div>
@@ -120,15 +122,16 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="lg:col-span-1" data-aos="fade-up" data-aos-delay="0">
               <div className="flex flex-col h-full justify-between">
-
+                {/* Logo */}
                 <div className="mb-8">
                   <div className="group cursor-pointer inline-block">
                     <div className="relative">
                       <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-blue-400 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur"></div>
                       <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 group-hover:border-teal-400/50 transition-colors duration-300">
-                        <Link href="/">
-                            <img src="/shs.svg" className="self-center scale-x-100" alt="Smart Hub Service" />
-                        </Link>
+                        <div className="text-2xl font-bold text-white">
+                          Smart<span className="text-teal-400">Hub</span>
+                        </div>
+                        <div className="text-sm text-gray-300">Service</div>
                       </div>
                     </div>
                   </div>
