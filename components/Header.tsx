@@ -129,13 +129,12 @@ const Header = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                 
                 <span className="relative z-10 flex items-center gap-2">
-                  +250-782-643-272
+                  +250-788-210-792
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
               </a>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               className="lg:hidden relative w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl flex items-center justify-center focus:outline-none hover:border-blue-400/50 transition-all duration-300 hover:scale-105"
               onClick={() => setIsOpen(!isOpen)}

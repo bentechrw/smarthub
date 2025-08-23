@@ -72,14 +72,14 @@ const Footer = () => {
     },
     { 
       icon: Phone, 
-      text: '+250-782-643-272', 
-      href: 'tel:+250782643272',
+      text: '+250-788-210-792', 
+      href: 'tel:+250788210792',
       type: 'phone' 
     },
     { 
       icon: Mail, 
-      text: 'bentech250@gmail.com', 
-      href: 'mailto:bentech250@gmail.com',
+      text: 'smarthubservices23@gmail.com', 
+      href: 'mailto:smarthubservices',
       type: 'email' 
     }
   ];
